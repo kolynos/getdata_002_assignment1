@@ -30,13 +30,13 @@ y_test<-read.table('./UCI HAR Dataset/test/y_test.txt')
 subjects_test<-read.table('./UCI HAR Dataset/test/subject_test.txt')
 colnames(subjects_test)<-'Subject'
 
-#subset training data and change activity names
+#subset training data, change activity names and add subect and activity columns
 x_train_sub<-x_train[valid_columns]
 y_train_factor<-as.factor(y_train[,])
 levels(y_train_factor)<-activity_names
 x_train_sub<-cbind(x_train_sub,subjects_train,Activity=y_train_factor)
 
-#subset test data and change activity names
+#subset test data, change activity names and add subect and activity columns
 x_test_sub<-x_test[valid_columns]
 y_test_factor<-as.factor(y_test[,])
 levels(y_test_factor)<-activity_names
